@@ -1,0 +1,30 @@
+<!--<p style="color: green"><%#= notice %></p>-->
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <td><%= @user['name'] %></td>
+  </tr>
+  <tr>
+    <th>Age:</th>
+    <td><%= @personal_info['age'] %></td>
+  </tr>
+  <tr>
+    <th>Country:</th>
+    <td><%= @personal_info['country'] %></td>
+  </tr>
+  <tr>
+    <th>Phone:</th>
+    <td><%= @personal_info['phone'] %></td>
+  </tr>
+  <tr>
+    <th>Twitter:</th>
+    <td><%= @personal_info['twitter'] %></td>
+  </tr>
+</table>
+
+
+<div>
+  <%#= link_to "Edit this personal info", edit_personal_info_path(@personal_info) %>
+  <%= link_to "Back to Home page", show_path %>
+</div>

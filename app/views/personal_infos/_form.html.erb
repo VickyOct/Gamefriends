@@ -1,0 +1,25 @@
+<%= form_with(model: personal_info) do |form| %>
+  <div>
+    <%= form.label :age, style: "display: block" %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+    <%= form.label :country, style: "display: block" %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.number_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <div>
+    <%= form.submit "submit"%>
+  </div>
+<% end %>

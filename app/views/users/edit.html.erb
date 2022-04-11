@@ -1,0 +1,21 @@
+<h1>Add genre game I like </h1>
+
+
+<!--<div id="genres">-->
+  <%# @genres.each do |genre| %>
+<!--    <div><%# genre.name %></div>-->
+  <%# end %>
+<!--</div>-->
+
+
+<div>
+  <%= form_with model: @genres, url: new_genre_path do |form| %>
+    <div>
+      <%= form.label :name, style: "display block" %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.submit 'Add New genre' %>
+    </div>
+  <% end %>
+</div>

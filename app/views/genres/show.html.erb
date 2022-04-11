@@ -1,0 +1,16 @@
+<div class="game">
+  <h2><%= content_tag :span, "#{@genre.name}"%></h2>
+  <%#= link_to 'Edit', edit_game_path(@game) %>
+</div>
+
+<div id="games">
+  <% @players.each do |player| %>
+    <%= player.name %>
+    <div>
+      <%= player.email %>
+    </div>
+    <p>
+      <a herf="#"><%= link_to "contact" %></a>
+    </p>
+  <% end %>
+</div>

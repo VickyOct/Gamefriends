@@ -1,0 +1,14 @@
+<h1>Genres</h1>
+
+
+</br>
+
+<div id="games">
+  <% @genre.each do |genre| %>
+    <h3><%= genre.name %></h3>
+    <p>
+      <%= link_to "Show other users with same hobby", genre %>
+    </p>
+  <% end %>
+</div>
+

@@ -1,0 +1,52 @@
+<h1>Hi,<%= @user.name %>(<%= @user.email %>)</h1>
+
+</br>
+<div>
+  <h4>Genres you love:</h4>
+
+<!--  <div id="notes">-->
+    <%#= @user.personal_info.age %>
+<!--  </div>-->
+
+  <div id="genres">
+    <% @genres.each do |genre| %>
+      <div><%= genre.name %></div>
+    <% end %>
+<!--    <div><%#= link_to 'Add', edit_user_path(@user) %></div>-->
+  </div>
+</div>
+
+<!--<div>-->
+  <%#= form_for([@genres, @genres.new]) do |form| %>
+<!--    <div>-->
+      <%#= form.label :name, style: "display block" %>
+      <%#= form.text_field :name %>
+<!--    </div>-->
+<!--    <div>-->
+      <%#= form.submit 'Add' %>
+<!--    </div>-->
+  <%# end %>
+<!--</div>-->
+</br>
+
+
+<div>
+  You have played
+  <% @games.each do |game| %>
+    <div><%= link_to game.title, game_path(game) %></div>
+  <% end %>
+</div>
+
+</br>
+<div>
+  All your notes
+  <div>
+    <% @notes.each do |note| %>
+
+      <div>Score: <%= note.score %></div>
+      <div><%= note.note %></div>
+      <div><%= "(#{time_ago_in_words note.created_at} ago)" %></div>
+      <br>
+    <% end %>
+  </div>
+</div>

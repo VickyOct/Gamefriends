@@ -1,0 +1,54 @@
+<h1>Sign up</h1>
+
+        <div>
+          <%= form_with model: @user, url: sign_up_path do |form| %></div>
+            <% if @user.errors.any? %>
+              <div class="alert alert-danger">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+                <ul>
+                  <% @user.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><%= form.label :name%></label>
+              <%=  form.text_field :name, placeholder: "Welcome"  %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :email%>
+              <%= form.text_field :email, placeholder: "123456@email.com" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :password%>
+              <%= form.password_field :password, placeholder: "password" %>
+            </div>
+
+
+    <div class="mb-3">
+    <%= form.submit "Sign up" %>
+    </div>
+  <% end %>
+
+<!--          <div>-->
+<!--            <%#= form_with model: @personal_info do |form| %></div>-->
+<!--              <div>-->
+                <%#= form.label :age%>
+                <%#= form.text_field :age, placeholder: "18" %>
+<!--              </div>-->
+<!--              <div>-->
+                <%#= form.label :country%>
+                <%#= form.password_field :country, placeholder: "Canada" %>
+<!--              </div>-->
+<!--              <div>-->
+                <%#= form.label :phone%>
+                <%#= form.password_field :phone, placeholder: "239 1234 1234" %>
+<!--              </div>-->
+<!--              <div>-->
+                <%#= form.label :twitter%>
+                <%#= form.password_field :twitter, placeholder: "@joeteew" %>
+<!--              </div>-->
+            <%# end %>

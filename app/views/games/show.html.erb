@@ -1,0 +1,41 @@
+<!--<p style="color: green"><%#= notice %></p>-->
+
+<div class="game">
+  <h3><%= content_tag :span, "#{@game.title} (#{@game.genre})"%></h3>
+  <%= link_to 'Edit', edit_game_path(@game) %>
+</div>
+
+<%#= render @game %>
+
+<div id="notes">
+  <%= render @game.notes %>
+</div>
+
+<br>
+
+<div>
+  <%= form_for([@game, @game.notes.new]) do |form| %>
+    <div class="mb-3">
+      <div class="form-label"><%= form.label :title, style: "display block" %></div>
+      <%= form.text_field :title %>
+    </div>
+    <div class="mb-3">
+      <div class="form-label"><%= form.label :score, style: "display block" %></div>
+      <%= form.text_field :score %>
+    </div>
+    <div class="mb-3">
+      <div class="form-label"><%= form.label :note, style: "display: block" %></div>
+      <%= form.text_area :note, size: '25×5' %>
+    </div>
+    <div>
+      <%= form.submit 'Add New Note' %>
+    </div>
+  <% end %>
+</div>
+<br>
+<div>
+  <%#= link_to "Edit this game", edit_game_path(@game) %>
+  <%= link_to "Back to games", games_path %>
+
+  <%= link_to "Destroy this game", @game, method: :delete %>
+</div>
