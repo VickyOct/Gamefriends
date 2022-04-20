@@ -27,4 +27,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :api, defaults: { format: 'json'} do
+    get 'games/search', to: 'games#search'
+    get 'personal_infos/search', to: 'personal_infos#search'
+    get 'genres/search', to: 'genres#search'
+    get 'users/search', to: 'users#search'
+    get 'notes/search', to: 'notes#search'
+    post "/login", to: "sessions#login"
+    post "/signup", to: "sessions#signup"
+
+    resources :todos
+    resources :games
+    resources :notes
+    resources :genres
+    resources :personal_infos
+    resources :users
+  end
 end
