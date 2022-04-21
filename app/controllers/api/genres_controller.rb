@@ -1,5 +1,4 @@
 class Api::GenresController < ApiController
-  before_action :authentication
   def index
     render json: Genre.all
   end

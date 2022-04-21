@@ -1,4 +1,5 @@
 class Api::GamesController < ApiController
+  before_action :auth_games, only: [ :destroy]
   def index
     render json: Game.all
   end
@@ -13,7 +14,7 @@ class Api::GamesController < ApiController
   end
 
   def search
-    render json: Game.where(' LIKE ?', "%#{params[:title]}%")
+    render json: Game.where('title LIKE ?', "%#{params[:title]}%")
   end
 
   def create
@@ -32,5 +33,10 @@ class Api::GamesController < ApiController
     render json: {notice: 'Successfully destroy the game'}
   end
 
-
+  private
+  def auth_games
+    current_id = User.find(params[:user_id]).id
+    user_id = Game.find_by(id: params[:id]).user_id
+    render json: { errir: "Unauthorized"}, status: :unauthorized unless current_id == user_id
+  end
 end

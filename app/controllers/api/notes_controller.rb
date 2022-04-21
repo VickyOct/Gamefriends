@@ -1,4 +1,6 @@
 class Api::NotesController < ApiController
+
+
   def index
     render json: Note.all
   end
